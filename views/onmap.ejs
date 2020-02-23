@@ -1,0 +1,209 @@
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Map</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+    </style>
+</head>
+
+<body>
+
+    <div class="overlay">
+    </div>
+    <div class="container center" style="margin-top:10%;">
+        <h3 style="align:center">Users</h3>
+        <hr>
+        <div class="box box-success">
+
+            <!-- /.box-header -->
+            <div class="box-body no-padding">
+                <div class="row" style="height: 80%">
+                    <div class="col-md-9 col-sm-8" style="height:90%">
+
+                        <!-- Map will be created here -->
+                        <div class="" id="googleMap" style="width: 100%;height:100%">
+
+                        </div>
+
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-4" style="height:90%">
+                        <div class="pad box-pane-right bg-green" style="min-height: 280px">
+                            <div class="description-block margin-bottom">
+                                <div class="sparkbar pad" data-color="#fff"><canvas width="34" height="30"
+                                        style="display: inline-block; width: 34px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                                <h5 class="description-header">900</h5>
+                                <span class="description-text">Users</span>
+                            </div>
+                            <!-- /.description-block -->
+                            <div class="description-block margin-bottom">
+                                <div class="sparkbar pad" data-color="#fff"><canvas width="34" height="30"
+                                        style="display: inline-block; width: 34px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                                <h5 class="description-header">10%</h5>
+                                <span class="description-text">Recommended</span>
+                            </div>
+                            <!-- /.description-block -->
+                            <div class="description-block">
+                                <div class="sparkbar pad" data-color="#fff"><canvas width="34" height="30"
+                                        style="display: inline-block; width: 34px; height: 30px; vertical-align: top;"></canvas>
+                                </div>
+                                <h5 class="description-header">5</h5>
+                                <span class="description-text">Nearby</span>
+                            </div>
+                            <!-- /.description-block -->
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                <!-- /.row -->
+            </div>
+            <!-- /.box-body -->
+        </div>
+
+    </div>
+    <!-- REQUIRED SCRIPTS -->
+    <!-- jQuery -->
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+
+
+    <script>
+        var disa = {
+            0: 'Speech Impaired',
+            1: 'Vision Impaired',
+            2: 'Physical',
+            3: 'Hearing',
+            4: 'Other',
+            5: 'None'
+        }
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 33.424564, lng: -111.928001 };
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById("googleMap"), { zoom: 10, center: uluru });
+            let arr = [{
+                name: 'Andy Jay',
+                lat: 33.58928349,
+                lng: -112.18094488,
+                dist: 18,
+                ds: 3
+            },
+            {
+                name: 'John',
+                lat: 33.38132691,
+                lng: -112.04418411,
+                dist: 7.3,
+                ds: 3
+            },
+            {
+                name: 'Joseph',
+                lat: 33.26508398,
+                lng: -112.06663936,
+                dist: 13.6225,
+                ds: 2
+
+            },
+            {
+                name: 'Shubham S',
+                lat: 33.1836945,
+                lng: -112.18094488,
+                dist: 17.1021,
+                ds: 5
+            },
+            {
+                name: 'Robert K',
+                lat: 33.58928349,
+                lng: -111.99577947,
+                dist: 15.489,
+                ds: 4
+            },
+            {
+                name: 'Clark Wilson',
+                lat: 33.62824931,
+                lng: -111.81589422,
+                dist: 15.9,
+                ds: 3
+            },
+            {
+                name: 'Andy Jay',
+                lat: 33.45083418,
+                lng: -111.65279627,
+                dist: 8.1987,
+                ds: 2
+            },
+            {   name:'Roger',
+                lat: 33.47805901,
+                lng: -112.05489499,
+                dist: 9.7427,
+                ds: 1
+            },
+            {   name:'Harsh G',
+                lat: 33.44209978,
+                lng: -111.76040137,
+                dist: 14.3857,
+                ds: 3
+            },
+            ];
+            var myLatlng = new google.maps.LatLng(33.424564, -111.928001);
+            let marker = new google.maps.Marker({
+                position: myLatlng,
+                title: "Hello World!",
+                color: 'green'
+            });
+            marker.setMap(map);
+            arr.map(function (obj) {
+                var myLatlng = new google.maps.LatLng(obj.lat, obj.lng);
+
+                let m = new google.maps.Marker({
+                    position: myLatlng,
+                    title: "Hello World!"
+                });
+                var contentString = `<div id="content">
+                    <div id="siteNotice">
+                    </div>
+                    <h4 id="firstHeading" class="firstHeading">${obj.name}</h4>
+                    <div id="bodyContent">
+                    <p><b>Distance</b>: ${obj.dist} Mi</p>
+                    <p><b>Disability</b>: ${disa[obj.ds]} </p>
+                    <button class="btn btn-sm btn-primary"> Send Request </button>
+                    </div> 
+                    </div>`;
+                var infowindow = new google.maps.InfoWindow({
+                    content: contentString
+                });
+                m.addListener('click', function () {
+                    infowindow.open(map, m);
+                });
+                // To add the marker to the map, call setMap();
+                m.setMap(map);
+            });
+
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaDmTa051Vj8FVo-Uh1TK3F5TXvndUIRQ&callback=initMap">
+    </script>
+</body>
+
+</html>

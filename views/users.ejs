@@ -1,0 +1,125 @@
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Options</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body>
+
+
+    <div class="container center" style="margin-top:10%;">
+        <h3 style="align:center">Users</h3>
+        <hr>
+        <div class="row">
+
+            No users
+
+        </div>
+
+    </div>
+
+
+
+    <div class="modal fade" id="connectModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Request to connect has been sent to the user.
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+    <script>
+        var map = {
+            0: 'Speech Impaired',
+            1: 'Vision Impaired',
+            2: 'Physical',
+            3: 'Hearing',
+            4: 'Other',
+            5: 'None'
+        }
+        function getRndInteger(min, max) {
+            return Math.floor(Math.random() * (max - min)) + min;
+        }
+        function connectUser(btn) {
+            if ($(btn).html() == 'Connect') {
+                $('#connectModal').modal({
+                    show: true
+                });
+                $(btn).html('sent');
+                $(btn).attr('disabled', true);
+            }
+
+        }
+        $(function () {
+            $.ajax
+                ({
+                    type: "POST",
+                    url: "/getUsers",
+                    data: '',
+                    success: function (res) {
+                        console.log(res);
+                        $('.row').empty();
+                        res.users.map((u) => {
+
+                            $('.row').append(`<div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="info-box bg-green">
+                    <span class="info-box-icon"><i class="fa fa-user"></i></span>
+
+                    <div class="info-box-content">
+                        <span class="info-box-text">Name : ${u['Name']}</span>
+                        <span class="info-box-number">Disability: ${map[u['DS']]}</span>
+                        <div class="progress">
+                            <div class="progress-bar" style="width: ${getRndInteger(1, 80)}%"></div>
+                        </div>
+                        <span class="progress-description">
+                            Helped ${getRndInteger(1, 80)}% more in 30 Days
+                        </span>
+                    <button class="btn btn-sm btn-default" width="30px" onclick="connectUser(this)">Connect</button>
+
+                    </div>
+                    <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+            </div>
+`)
+
+                        })
+                    }
+                });
+        })
+
+    </script>
+</body>
+
+</html>

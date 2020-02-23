@@ -1,0 +1,141 @@
+<html>
+
+<head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <title>AdminLTE 3 | Dashboard 2</title>
+      
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+</head>
+
+<body>
+
+        <div class="col-md-4">
+                <!-- Info Boxes Style 2 -->
+                <div class="info-box bg-yellow">
+                  <span class="info-box-icon"><i class="ion ion-ios-pricetag-outline"></i></span>
+      
+                  <div class="info-box-content">
+                    <span class="info-box-text">Inventory</span>
+                    <span class="info-box-number">5,200</span>
+      
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 50%"></div>
+                    </div>
+                    <span class="progress-description">
+                          50% Increase in 30 Days
+                        </span>
+                  </div>
+                  <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box bg-green">
+                  <span class="info-box-icon"><i class="ion ion-ios-heart-outline"></i></span>
+      
+                  <div class="info-box-content">
+                    <span class="info-box-text">Mentions</span>
+                    <span class="info-box-number">92,050</span>
+      
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 20%"></div>
+                    </div>
+                    <span class="progress-description">
+                          20% Increase in 30 Days
+                        </span>
+                  </div>
+                  <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box bg-red">
+                  <span class="info-box-icon"><i class="ion ion-ios-cloud-download-outline"></i></span>
+      
+                  <div class="info-box-content">
+                    <span class="info-box-text">Downloads</span>
+                    <span class="info-box-number">114,381</span>
+      
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 70%"></div>
+                    </div>
+                    <span class="progress-description">
+                          70% Increase in 30 Days
+                        </span>
+                  </div>
+                  <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+                <div class="info-box bg-aqua">
+                  <span class="info-box-icon"><i class="ion-ios-chatbubble-outline"></i></span>
+      
+                  <div class="info-box-content">
+                    <span class="info-box-text">Direct Messages</span>
+                    <span class="info-box-number">163,921</span>
+      
+                    <div class="progress">
+                      <div class="progress-bar" style="width: 40%"></div>
+                    </div>
+                    <span class="progress-description">
+                          40% Increase in 30 Days
+                        </span>
+                  </div>
+                  <!-- /.info-box-content -->
+                </div>
+                <!-- /.info-box -->
+      
+              
+      
+              
+                <!-- /.box -->
+              </div>
+      
+
+<!-- REQUIRED SCRIPTS -->
+<!-- jQuery -->
+<script src="plugins/jquery/jquery.min.js"></script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+
+<!-- OPTIONAL SCRIPTS -->
+<script src="dist/js/demo.js"></script>
+
+<!-- PAGE PLUGINS -->
+<!-- jQuery Mapael -->
+<script src="plugins/jquery-mousewheel/jquery.mousewheel.js"></script>
+<script src="plugins/raphael/raphael.min.js"></script>
+<script src="plugins/jquery-mapael/jquery.mapael.min.js"></script>
+<script src="plugins/jquery-mapael/maps/usa_states.min.js"></script>
+<!-- ChartJS -->
+<script src="plugins/chart.js/Chart.min.js"></script>
+
+<!-- PAGE SCRIPTS -->
+<script src="dist/js/pages/dashboard2.js"></script>
+
+<script>
+
+        function initMap() {
+          // The location of Uluru
+          var uluru = {lat: -25.344, lng: 131.036};
+          // The map, centered at Uluru
+          var map = new google.maps.Map(
+              $('#googleMap'), {zoom: 4, center: uluru});
+        }
+        </script>
+<script 
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaDmTa051Vj8FVo-Uh1TK3F5TXvndUIRQ&callback=initMap">
+    </script>
+
+</body>
+</html>

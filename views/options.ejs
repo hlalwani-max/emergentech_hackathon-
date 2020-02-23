@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Options</title>
+
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+    <!-- overlayScrollbars -->
+    <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="dist/css/adminlte.min.css">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <style>
+      * {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+
+  font-family: arial;
+}
+
+/* Let's style the wrapper in such away that, it should always be at the center of the browser */
+
+
+/* Style the all four buttons and set its position to relative so that we can place the sliders wherever we want by making its position-absolute*/
+
+.btn1, .btn2, .btn3, .btn4 {
+  width: 220px;
+  height: 45px;
+  line-height: 45px;
+  position: relative;
+  cursor: pointer;
+  border: 3px solid rgb(6, 194, 169);
+  margin: 30px 0;
+  /* Now use the overflow:hidden property to hide the slider */
+  overflow: hidden;
+}
+/* Style the text in p tag and set its position to relative so that whenever we hover over the button, the text would stay at the top of the slider */
+
+#wrapper div > p {
+  position: relative;
+  z-index: 1;
+  color: rgb(0, 0, 0);
+  font-weight: 900;
+  text-transform: uppercase;
+  text-align: center;
+  /* Use transition property for smooth transition effect */
+  transition: all 0.5s ease;
+}
+/* Style the slider by setting it position to absolute */
+
+.btn1:before, .btn2:before, .btn3:before, .btn4:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgb(6, 194, 169);
+  width: 100%;
+  height: 100%;
+  /* Use transition property for smooth transition effect */
+  transition: all 0.5s ease;
+}
+/* Now we can place the sliders wherever we want */
+
+.btn1:before {
+  top: -50px;
+}
+
+.btn2:before {
+  left: -225px;
+}
+
+.btn3:before {
+  left: 225px;
+}
+
+.btn4:before {
+  top: 50px;
+}
+/* Whenever we hover over the button, font color changes */
+
+#wrapper div > p:hover {
+  color: #ffffff;
+  /* Use transition property for smooth transition effect */
+  transition: all 0.5s ease;
+}
+/* sliding hover effect */
+
+.btn1:hover:before, .btn4:hover:before {
+  top: 0px;
+  /* Use transition property for smooth transition effect */
+  transition: all 0.5s ease;
+}
+
+.btn2:hover:before, .btn3:hover:before {
+  left: 0px;
+  /* Use transition property for smooth transition effect */
+  transition: all 0.5s ease;
+}
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+
+        <section class="content" style="margin:10%">
+            <h3 align="center">Select an option to proceed</h3>
+         <hr>
+
+            <div id="wrapper" class="center-align" >
+                <div style="margin:0 auto;width: fit-content;">
+                    <div class="btn1" onclick="callConnect()" >
+                      <p>Looking to  connect</p>
+                    </div>
+                  
+                    <div class="btn1"  onclick="map()">
+                      <p>Looking for help</p>
+                    </div>
+                  
+                    <div class="btn1">
+                      <p>Willing to help</p>
+                    </div>
+                  
+                    <div class="btn1">
+                      <p>Nearby</p>
+                    </div>
+                </div>
+                  </div>
+        </section>
+
+    </div>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+
+    <script>
+      function callConnect(){
+        window.location.href='/users';
+      }
+
+      function map(){
+        window.location.href='/onmap';
+      }
+
+    </script>
+    <!-- Bootstrap -->
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,145 @@
+<html>
+
+<head>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Form</title>
+
+        <!-- Font Awesome Icons -->
+        <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+        <!-- overlayScrollbars -->
+        <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+        <!-- Theme style -->
+        <link rel="stylesheet" href="dist/css/adminlte.min.css">
+        <!-- Google Font: Source Sans Pro -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    </head>
+</head>
+
+
+
+<body class="hold-transition register-page" data-gr-c-s-loaded="true" cz-shortcut-listen="true">
+    <div class="register-box">
+        <div class="register-logo">
+            <a href="#"><b>Ena</b>bled</a>
+        </div>
+
+        <div class="register-box-body">
+            <p class="login-box-msg">Register</p>
+
+            <form action="javascript:register()" method="post">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control name" placeholder="Full name">
+                    <span class="glyphicon glyphicon-user form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control age" placeholder="Age">
+                    <span class="glyphicon glyphicon-user form-control-feedback age"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="email" class="form-control email" placeholder="Email">
+                    <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" placeholder="Password">
+                    <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+                </div>
+                <div class="form-group has-feedback">
+                    <input type="password" class="form-control" placeholder="Retype password">
+                    <span class="glyphicon glyphicon-log-in form-control-feedback"></span>
+                </div>
+                <div class="form-group">
+                    <label>Impairment</label>
+                    <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                        data-select2-id="1" tabindex="-1" aria-hidden="true">
+                        <option value="1">Vision Impairment</option>
+                        <option value="0">Speech Impairment</option>
+                        <option value="2">Physical Disability</option>
+                        <option value="3">Hearing Impairment</option>
+                        <option value="4">Other</option>
+                        <option value="5" selected="selected">None</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Willing to help</label>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                            Yes
+                        </label>
+                    </div>
+                    <div class="radio">
+                        <label>
+                            <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+                            No
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+
+                    <!-- /.col -->
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-primary btn-block btn-flat">Register</button>
+                    </div>
+                    <div class="col-xs-4">
+                        <button type="submit" class="btn btn-default btn-block btn-flat">Verify</button>
+                    </div>
+                    <!-- /.col -->
+                </div>
+            </form>
+        </div>
+        <!-- /.form-box -->
+    </div>
+    <!-- /.register-box -->
+
+    <!-- jQuery 3 -->
+    <script src="../../bower_components/jquery/dist/jquery.min.js"></script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="../../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- iCheck -->
+    <script src="../../plugins/iCheck/icheck.min.js"></script>
+    <script>
+        $(function () {
+            $('input').iCheck({
+                checkboxClass: 'icheckbox_square-blue',
+                radioClass: 'iradio_square-blue',
+                increaseArea: '20%' /* optional */
+            });
+        });
+
+        function register() {
+            let ob = {};
+            ob['Name'] = $('.name').val();
+            ob['AGE'] = $('.age').val();
+            if ($('#optionsRadios1').prop('checked')) {
+                ob['WH'] = 1
+            } else {
+                ob['WH'] = 0
+            }
+
+            ob['DS'] = parseInt($("select :selected").val());
+
+            $.post("/register",
+                ob,
+                function (data, status) {
+                    window.location.href='/options';
+                });
+
+        }
+
+    </script>
+
+    <script src="plugins/jquery/jquery.min.js"></script>
+    <script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- overlayScrollbars -->
+    <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="dist/js/adminlte.js"></script>
+</body>
+
+</html>

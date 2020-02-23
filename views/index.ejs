@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+  <title>AdminLTE 3 | Dashboard 2</title>
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <!-- overlayScrollbars -->
+  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <!-- Theme style -->
+  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <!-- Google Font: Source Sans Pro -->
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
+<body>
+<div class="wrapper">
+
+    <section class="content">
+      <div class="container-fluid">
+        <!-- Info boxes -->
+        <div class="row center">
+          <div class="col-12 col-sm-6 col-md-3">
+            <a href="#">
+            <div class="info-box">
+              <span class="info-box-icon bg-info elevation-1"><i class="fas fa-user"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">View Users</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+          </a>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+          <div class="col-12 col-sm-6 col-md-3">
+              <a href="#">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-danger elevation-1"><i class="fas fa-thumbs-up"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Recommend Users</span>
+              </div>
+              <!-- /.info-box-content -->
+            </div>
+            </a>
+            <!-- /.info-box -->
+          </div>
+          <!-- /.col -->
+
+          <!-- fix for small devices only -->
+          <div class="clearfix hidden-md-up"></div>
+
+          <div class="col-12 col-sm-6 col-md-3">
+              <a href="#">
+            <div class="info-box mb-3">
+              <span class="info-box-icon bg-success elevation-1"><i class="fas fa-question"></i></span>
+
+              <div class="info-box-content">
+                <span class="info-box-text">Special Help</span>
+              </div>
+            </div>
+            </a>
+          </div>
+        </div>
+        <!-- /.row -->
+
+
+        <!-- Main row -->
+        <div class="row">
+          <!-- Left col -->
+          <div class="col-md-12">
+            <!-- MAP & BOX PANE -->
+            <div class="card">
+              <div class="card-header">
+                <h3 class="card-title">Users nearby</h3>
+              </div>
+           
+              <div class="googleMap"  style="height:600px;width: 100%">
+                
+              </div>
+              <!-- /.card-body -->
+            </div>
+            
+
+            <!-- TABLE: LATEST ORDERS -->
+           
+            <!-- /.card -->
+          </div>
+          <!-- /.col -->
+
+       
+        </div>
+        <!-- /.row -->
+      </div><!--/. container-fluid -->
+    </section>
+  
+</div>
+
+<script src="plugins/jquery/jquery.min.js"></script>
+<script 
+src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAaDmTa051Vj8FVo-Uh1TK3F5TXvndUIRQ&callback=initMap">
+</script>
+<script>
+    function initMap() {
+      // The location of Uluru
+      var uluru = {lat: -25.344, lng: 131.036};
+      // The map, centered at Uluru
+      var map = new google.maps.Map(
+          document.getElementsByClassName('googleMap'), {zoom: 4, center: uluru});
+    }
+    </script>
+<!-- Bootstrap -->
+<script src="plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- overlayScrollbars -->
+<script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<!-- AdminLTE App -->
+<script src="dist/js/adminlte.js"></script>
+
+
+</body>
+</html>
